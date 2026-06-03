@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Spartanz Travels Owner Panel</title>
+
+<style>
+
+body{
+background:#000;
+color:white;
+font-family:Arial;
+padding:20px;
+}
+
+h1{
+color:gold;
+text-align:center;
+}
+
+.booking{
+
+border:2px solid gold;
+border-radius:15px;
+padding:20px;
+margin:20px;
+background:#111;
+
+}
+
+.name{
+color:gold;
+font-size:25px;
+}
+
+button{
+
+background:red;
+color:white;
+padding:10px;
+border:none;
+border-radius:8px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>
+🔔 Spartanz Travels Booking Panel
+</h1>
+
+
+<div id="bookingList">
+
+<h2 style="text-align:center">
+No New Booking
+</h2>
+
+</div>
+
+
+
+<script>
+
+
+let bookings =
+JSON.parse(localStorage.getItem("bookings")) || [];
+
+
+
+function showBookings(){
+
+
+let box =
+document.getElementById("bookingList");
+
+
+box.innerHTML="";
+
+
+if(bookings.length==0){
+
+box.innerHTML=
+"<h2>No New Booking</h2>";
+
+return;
+
+}
+
+
+
+bookings.forEach((b,index)=>{
+
+
+box.innerHTML += `
+
+
+<div class="booking">
+
+
+<div class="name">
+🚖 ${b.name}
+</div>
+
+
+<p>
+📞 Phone : ${b.phone}
+</p>
+
+
+<p>
+📍 Pickup : ${b.pickup}
+</p>
+
+
+<p>
+🏁 Drop : ${b.drop}
+</p>
+
+
+<p>
+⏰ ${b.time}
+</p>
+
+
+<button onclick="deleteBooking(${index})">
+Delete
+</button>
+
+
+</div>
+
+
+`;
+
+});
+
+
+}
+
+
+
+function deleteBooking(i){
+
+bookings.splice(i,1);
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+
+showBookings();
+
+}
+
+
+showBookings();
+
+
+</script>
+
+
+</body>
+</html>
