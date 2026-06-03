@@ -468,21 +468,6 @@ encodeURIComponent(msg)
 }
 
 
-function calculateFare(){
-
-let km = document.getElementById("km").value;
-let rate = document.getElementById("vehicle").value;
-let trip = document.getElementById("trip").value;
-
-let totalKM = Number(km) * Number(trip);
-
-document.getElementById("fareResult").innerHTML =
-"Total KM: " + totalKM +
-"<br>Estimated Fare: ₹" + (totalKM * rate);
-
-}
-
-
 function checkCustomer(){
 
 let phone = document.getElementById("phone").value;
