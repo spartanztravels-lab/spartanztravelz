@@ -406,19 +406,29 @@ https://spartanztravels-lab.github.io/spartanztravelz/
 
 
 <script>
+<script>
 
 function calculateFare(){
 
 let km = document.getElementById("km").value;
+
 let rate = document.getElementById("vehicle").value;
+
 let trip = document.getElementById("trip").value;
+
 
 let totalKM = Number(km) * Number(trip);
 
+let totalFare = totalKM * Number(rate);
+
+
 document.getElementById("fareResult").innerHTML =
 "Total KM: " + totalKM +
-"<br>Estimated Fare: ₹" + (totalKM * rate);
+"<br>Estimated Fare: ₹" + totalFare;
 
+}
+
+</script>
 }
 
 
