@@ -256,7 +256,17 @@ Book On WhatsApp
 
 <h2>Fare Calculator</h2>
 
-<input type="number" id="km" placeholder="Distance KM"><br>
+<button onclick="changeKM(-1)">➖</button>
+
+<input 
+type="number" 
+id="km" 
+value="1"
+placeholder="Distance KM">
+
+<button onclick="changeKM(1)">➕</button>
+
+<br>
 
 <select id="vehicle">
 <option value="15">Sedan ₹15/KM</option>
@@ -377,6 +387,17 @@ https://spartanztravels-lab.github.io/spartanztravelz/
 <a class="call" href="tel:9843908039">📞</a>
 
 <script>
+  function changeKM(value){
+
+let km = document.getElementById("km");
+
+let current = Number(km.value);
+
+if(current + value >= 0){
+km.value = current + value;
+}
+
+}
 
 function calculateFare(){
 
