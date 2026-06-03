@@ -406,7 +406,6 @@ https://spartanztravels-lab.github.io/spartanztravelz/
 
 
 <script>
-<script>
 
 function calculateFare(){
 
@@ -429,28 +428,8 @@ document.getElementById("fareResult").innerHTML =
 }
 
 </script>
-}
 
 
-function checkCustomer(){
-
-let phone = document.getElementById("phone").value;
-
-let oldCustomer = localStorage.getItem(phone);
-
-if(phone.length >= 10){
-
-if(oldCustomer){
-
-document.getElementById("customerStatus").innerHTML =
-"👋 Existing Customer";
-
-}else{
-
-document.getElementById("customerStatus").innerHTML =
-"🎁 New Customer - Welcome Offer Available";
-
-}
 
 function bookNow(){
 
