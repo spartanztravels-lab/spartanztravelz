@@ -426,7 +426,70 @@ document.getElementById("fareResult").innerHTML =
 "<br>Estimated Fare: ₹" + totalFare;
 
 }
+function checkCustomer(){
 
+let phone = document.getElementById("phone").value;
+
+let oldCustomer = localStorage.getItem(phone);
+
+
+if(phone.length >= 10){
+
+if(oldCustomer){
+
+document.getElementById("customerStatus").innerHTML =
+"👋 Existing Customer";
+
+}
+else{
+
+document.getElementById("customerStatus").innerHTML =
+"🎁 New Customer - Welcome Offer Available";
+
+}
+
+}
+
+}
+
+
+
+function bookNow(){
+
+let name = document.getElementById("name").value;
+
+let phone = document.getElementById("phone").value;
+
+let pickup = document.getElementById("pickup").value;
+
+let drop = document.getElementById("drop").value;
+
+
+// save customer
+
+localStorage.setItem(phone,"customer");
+
+
+// notification
+
+alert(
+"🔔 New Booking Request\n\n"+
+"Name: "+name+
+"\nPhone: "+phone+
+"\nPickup: "+pickup+
+"\nDrop: "+drop
+);
+
+
+// clear
+
+document.getElementById("name").value="";
+document.getElementById("phone").value="";
+document.getElementById("pickup").value="";
+document.getElementById("drop").value="";
+
+
+}
 </script>
 
 
