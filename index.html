@@ -255,29 +255,43 @@ Book On WhatsApp
 <section id="fare">
 
 <h2>Fare Calculator</h2>
-  
 
-function calculateFare()
+<input type="number" id="km" placeholder="Distance KM">
 
-
-<select id="vehicle">
-  <select id="trip">
-
-<option value="1">One Way</option>
-
-<option value="2">Up & Down</option>
-
-<select id="trip">
-<option value="1">One Way</option>
-<option value="2">Up & Down</option>
-</select>
 <br>
 
-<button onclick="calculateFare()">Calculate Fare</button>
+<select id="vehicle">
+
+<option value="15">Sedan ₹15/KM</option>
+
+<option value="18">SUV ₹18/KM</option>
+
+<option value="22">Van ₹22/KM</option>
+
+</select>
+
+<br>
+
+<select id="trip">
+
+<option value="1">One Way</option>
+
+<option value="2">Up & Down</option>
+
+</select>
+
+<br>
+
+<button onclick="calculateFare()">
+Calculate Fare
+</button>
 
 <h3 id="fareResult"></h3>
 
 </section>
+  
+
+
 
 <section>
 
@@ -384,27 +398,22 @@ https://spartanztravels-lab.github.io/spartanztravelz/
 <a class="call" href="tel:9843908039">📞</a>
 
 <script>
-  function changeKM(value){
+  function calculateFare(){
 
-let km = document.getElementById("km");
+let km = document.getElementById("km").value;
 
-let current = Number(km.value);
+let rate = document.getElementById("vehicle").value;
 
-if(current + value >= 0){
-km.value = current + value;
-}
+let trip = document.getElementById("trip").value;
 
-}
-
-function calculateFare(){
-
-let km=document.getElementById("km").value;
-let rate=document.getElementById("vehicle").value;
+let totalKM = km * trip;
 
 document.getElementById("fareResult").innerHTML =
-"Estimated Fare: ₹" + (km * rate);
+"Total KM: " + totalKM +
+"<br>Estimated Fare: ₹" + (totalKM * rate);
 
 }
+ 
 
 function bookNow(){
 
