@@ -432,20 +432,37 @@ encodeURIComponent(msg)
 }
 
 </script>
- function calculateFare(){
+<script>
+
+function calculateFare(){
 
 let km = document.getElementById("km").value;
-
 let rate = document.getElementById("vehicle").value;
-
 let trip = document.getElementById("trip").value;
 
-
 let totalKM = km * trip;
-
 
 document.getElementById("fareResult").innerHTML =
 "Total KM: " + totalKM +
 "<br>Estimated Fare: ₹" + (totalKM * rate);
 
 }
+
+
+function bookNow(){
+
+let msg=`🚖 Spartanz Travels Booking
+
+Name: ${document.getElementById("name").value}
+Phone: ${document.getElementById("phone").value}
+Pickup: ${document.getElementById("pickup").value}
+Drop: ${document.getElementById("drop").value}`;
+
+window.open(
+"https://wa.me/919843908039?text=" +
+encodeURIComponent(msg)
+);
+
+}
+
+</script>
