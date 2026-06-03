@@ -255,16 +255,20 @@ Book On WhatsApp
 <section id="fare">
 
 <h2>Fare Calculator</h2>
+  
+function calculateFare(){
 
-<button onclick="changeKM(-1)">➖</button>
+let km = document.getElementById("km").value;
+let rate = document.getElementById("vehicle").value;
+let trip = document.getElementById("trip").value;
 
-<input 
-type="number" 
-id="km" 
-value="1"
-placeholder="Distance KM">
+let totalKM = km * trip;
 
-<button onclick="changeKM(1)">➕</button>
+document.getElementById("fareResult").innerHTML =
+"Total KM: " + totalKM + 
+"<br>Estimated Fare: ₹" + (totalKM * rate);
+
+}
 
 <br>
 
