@@ -456,11 +456,6 @@ document.getElementById("phone").value,
 
 function bookNow(){
 
-localStorage.setItem(
-document.getElementById("phone").value,
-"customer"
-);
-
 let msg=`🚖 Spartanz Travels Booking
 
 Name: ${document.getElementById("name").value}
@@ -474,22 +469,9 @@ encodeURIComponent(msg)
 );
 
 }
-let msg=`🚖 Spartanz Travels Booking
 
 
-Name: ${document.getElementById("name").value}
-Phone: ${document.getElementById("phone").value}
-Pickup: ${document.getElementById("pickup").value}
-Drop: ${document.getElementById("drop").value}`;
-
-window.open(
-"https://wa.me/919843908039?text=" +
-encodeURIComponent(msg)
-);
-
-}
-
-</script>
+<script>
 <script>
 
 function calculateFare(){
@@ -507,19 +489,59 @@ document.getElementById("fareResult").innerHTML =
 }
 
 
+
+function checkCustomer(){
+
+let phone = document.getElementById("phone").value;
+
+let oldCustomer = localStorage.getItem(phone);
+
+
+if(phone.length >= 10){
+
+if(oldCustomer){
+
+document.getElementById("customerStatus").innerHTML =
+"👋 Existing Customer";
+
+}else{
+
+document.getElementById("customerStatus").innerHTML =
+"🎁 New Customer - Welcome Offer Available";
+
+}
+
+}
+
+}
+
+
+
 function bookNow(){
+
+
+localStorage.setItem(
+document.getElementById("phone").value,
+"customer"
+);
+
 
 let msg=`🚖 Spartanz Travels Booking
 
 Name: ${document.getElementById("name").value}
+
 Phone: ${document.getElementById("phone").value}
+
 Pickup: ${document.getElementById("pickup").value}
+
 Drop: ${document.getElementById("drop").value}`;
+
 
 window.open(
 "https://wa.me/919843908039?text=" +
 encodeURIComponent(msg)
 );
+
 
 }
 
