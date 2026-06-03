@@ -298,12 +298,22 @@ Calculate Fare
 <h2>Book Your Trip</h2>
 
 <input type="text" id="name" placeholder="Customer Name"><br>
-<input type="text" id="phone" placeholder="Mobile Number"><br>
+  <input 
+type="text" 
+id="phone" 
+placeholder="Mobile Number"
+onkeyup="checkCustomer()">
+
+<br>
+<h3 id="customerStatus" style="color:gold;"></h3>
 <input type="text" id="pickup" placeholder="Pickup Location"><br>
 <input type="text" id="drop" placeholder="Drop Location"><br>
 
 <button onclick="bookNow()">Book On WhatsApp</button>
-
+localStorage.setItem(
+document.getElementById("phone").value,
+"customer"
+);
 </section>
 
 
@@ -411,7 +421,29 @@ let totalKM = km * trip;
 document.getElementById("fareResult").innerHTML =
 "Total KM: " + totalKM +
 "<br>Estimated Fare: ₹" + (totalKM * rate);
+function checkCustomer(){
 
+let phone = document.getElementById("phone").value;
+
+let oldCustomer = localStorage.getItem(phone);
+
+if(phone.length >= 10){
+
+if(oldCustomer){
+
+document.getElementById("customerStatus").innerHTML =
+"👋 Existing Customer";
+
+}else{
+
+document.getElementById("customerStatus").innerHTML =
+"🎁 New Customer - Welcome Offer Available";
+
+}
+
+}
+
+}
 }
  
 
