@@ -258,6 +258,8 @@ Book On WhatsApp
   
 function calculateFare(){
 
+function calculateFare(){
+
 let km = document.getElementById("km").value;
 let rate = document.getElementById("vehicle").value;
 let trip = document.getElementById("trip").value;
@@ -265,8 +267,10 @@ let trip = document.getElementById("trip").value;
 let totalKM = km * trip;
 
 document.getElementById("fareResult").innerHTML =
-"Total KM: " + totalKM + 
+"Total KM: " + totalKM +
 "<br>Estimated Fare: ₹" + (totalKM * rate);
+
+}
 
 }
 
