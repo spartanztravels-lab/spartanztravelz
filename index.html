@@ -490,5 +490,51 @@ document.getElementById("drop").value="";
 
 }
 </script>
+  function bookNow(){
+
+
+let booking={
+
+name:
+document.getElementById("name").value,
+
+phone:
+document.getElementById("phone").value,
+
+pickup:
+document.getElementById("pickup").value,
+
+drop:
+document.getElementById("drop").value,
+
+time:
+new Date().toLocaleString()
+
+};
+
+
+
+let old =
+JSON.parse(localStorage.getItem("bookings")) || [];
+
+
+
+old.push(booking);
+
+
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(old)
+);
+
+
+
+alert(
+"🔔 Booking Received Successfully"
+);
+
+
+}
 
 
