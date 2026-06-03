@@ -452,37 +452,39 @@ document.getElementById("customerStatus").innerHTML =
 
 }
 
-}
-
-}
-
-
-
 function bookNow(){
 
-localStorage.setItem(
-document.getElementById("phone").value,
-"customer"
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let pickup = document.getElementById("pickup").value;
+let drop = document.getElementById("drop").value;
+
+
+// save customer
+localStorage.setItem(phone,"customer");
+
+
+// notification message
+alert(
+"🔔 New Booking Request\n\n" +
+"Name: "+name+
+"\nPhone: "+phone+
+"\nPickup: "+pickup+
+"\nDrop: "+drop
 );
 
 
-let msg =
-`🚖 Spartanz Travels Booking
-
-Name: ${document.getElementById("name").value}
-
-Phone: ${document.getElementById("phone").value}
-
-Pickup: ${document.getElementById("pickup").value}
-
-Drop: ${document.getElementById("drop").value}`;
-
-
-window.open(
-"https://wa.me/919843908039?text=" 
-+ encodeURIComponent(msg)
-);
+// clear form
+document.getElementById("name").value="";
+document.getElementById("phone").value="";
+document.getElementById("pickup").value="";
+document.getElementById("drop").value="";
 
 }
+
+
+
+
+
 
 </script>
