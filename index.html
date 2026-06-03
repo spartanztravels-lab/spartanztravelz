@@ -468,16 +468,13 @@ encodeURIComponent(msg)
 }
 
 
-<script>
-<script>
-
 function calculateFare(){
 
 let km = document.getElementById("km").value;
 let rate = document.getElementById("vehicle").value;
 let trip = document.getElementById("trip").value;
 
-let totalKM = km * trip;
+let totalKM = Number(km) * Number(trip);
 
 document.getElementById("fareResult").innerHTML =
 "Total KM: " + totalKM +
@@ -486,13 +483,11 @@ document.getElementById("fareResult").innerHTML =
 }
 
 
-
 function checkCustomer(){
 
 let phone = document.getElementById("phone").value;
 
 let oldCustomer = localStorage.getItem(phone);
-
 
 if(phone.length >= 10){
 
@@ -513,9 +508,7 @@ document.getElementById("customerStatus").innerHTML =
 }
 
 
-
 function bookNow(){
-
 
 localStorage.setItem(
 document.getElementById("phone").value,
@@ -539,7 +532,4 @@ window.open(
 encodeURIComponent(msg)
 );
 
-
 }
-
-</script>
