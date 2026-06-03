@@ -449,7 +449,33 @@ document.getElementById("customerStatus").innerHTML =
 
 function bookNow(){
 
+localStorage.setItem(
+document.getElementById("phone").value,
+"customer"
+);
+
+function bookNow(){
+
+localStorage.setItem(
+document.getElementById("phone").value,
+"customer"
+);
+
 let msg=`🚖 Spartanz Travels Booking
+
+Name: ${document.getElementById("name").value}
+Phone: ${document.getElementById("phone").value}
+Pickup: ${document.getElementById("pickup").value}
+Drop: ${document.getElementById("drop").value}`;
+
+window.open(
+"https://wa.me/919843908039?text=" +
+encodeURIComponent(msg)
+);
+
+}
+let msg=`🚖 Spartanz Travels Booking
+
 
 Name: ${document.getElementById("name").value}
 Phone: ${document.getElementById("phone").value}
