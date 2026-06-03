@@ -405,65 +405,19 @@ https://spartanztravels-lab.github.io/spartanztravelz/
 <a class="call" href="tel:9843908039">📞</a>
 
 <script>
-  function calculateFare(){
+<script>
+
+function calculateFare(){
 
 let km = document.getElementById("km").value;
-
 let rate = document.getElementById("vehicle").value;
-
 let trip = document.getElementById("trip").value;
 
-let totalKM = km * trip;
+let totalKM = Number(km) * Number(trip);
 
 document.getElementById("fareResult").innerHTML =
 "Total KM: " + totalKM +
 "<br>Estimated Fare: ₹" + (totalKM * rate);
-function checkCustomer(){
-
-let phone = document.getElementById("phone").value;
-
-let oldCustomer = localStorage.getItem(phone);
-
-if(phone.length >= 10){
-
-if(oldCustomer){
-
-document.getElementById("customerStatus").innerHTML =
-"👋 Existing Customer";
-
-}else{
-
-document.getElementById("customerStatus").innerHTML =
-"🎁 New Customer - Welcome Offer Available";
-
-}
-
-}
-
-}
-}
- 
-
-function bookNow(){
-
-localStorage.setItem(
-document.getElementById("phone").value,
-"customer"
-);
-
-function bookNow(){
-
-let msg=`🚖 Spartanz Travels Booking
-
-Name: ${document.getElementById("name").value}
-Phone: ${document.getElementById("phone").value}
-Pickup: ${document.getElementById("pickup").value}
-Drop: ${document.getElementById("drop").value}`;
-
-window.open(
-"https://wa.me/919843908039?text=" +
-encodeURIComponent(msg)
-);
 
 }
 
@@ -493,6 +447,7 @@ document.getElementById("customerStatus").innerHTML =
 }
 
 
+
 function bookNow(){
 
 localStorage.setItem(
@@ -501,7 +456,8 @@ document.getElementById("phone").value,
 );
 
 
-let msg=`🚖 Spartanz Travels Booking
+let msg =
+`🚖 Spartanz Travels Booking
 
 Name: ${document.getElementById("name").value}
 
@@ -513,8 +469,10 @@ Drop: ${document.getElementById("drop").value}`;
 
 
 window.open(
-"https://wa.me/919843908039?text=" +
-encodeURIComponent(msg)
+"https://wa.me/919843908039?text=" 
++ encodeURIComponent(msg)
 );
 
 }
+
+</script>
